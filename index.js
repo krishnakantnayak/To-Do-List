@@ -2,7 +2,7 @@ const express=require('express');
 const app=express();
 const port=8080;
 const db=require('./config/mongoose');
-mongoose.set('strictQuery', true)
+
 app.use(express.urlencoded());
 
 //below line uses the routes to different controlers for the application
