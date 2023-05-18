@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>To Do List</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+
+    <div class='container'>
+
+        <h1>Todo List App</h1>
+        <!-- This form will take data from user and send them to server -->
+        <form action="create-task" method="post">
+            <label for="description">Description</label>
+            <input type="text" name="description" placeholder="Enter text">
+            <label for="category">Category</label>
+            <select name="category" id="catg">
+                <option value="Work">Work</option>
+                <option value="School">School</option>
+                <option value="Personal">Personal</option>
+            </select>
+            <label for="date">Due Date</label>
+            <input type="date" name="date" id="date" value="2013-01-08">
+
+            <button type="submit" class="add-button">Add Task</button>
+
+
+        </form>
+        <!-- This form will show and take user selected records to delete them on the server -->
+        <form action="delete-task" method="post" id="form2">
+            <button type="submit" id="delete">Delete</button>
+            <ul>
+                <!-- tasks contain the list of tasks sent from main controler -->
+                <% for(let i of tasks) { %>
+                    <li>
+                        <div class="card">
+                            <span><input type="checkbox" name=<%=i["id"]%> onclick='check()'></span>
+                            <%= i['description']%>
+                                <%= i['date']%>
+                                    <%= i['category']%>
+
+
+                        </div>
+
+                    </li>
+                    <%}%>
+            </ul>
+        </form>
+
+    </div>
+
+
+
+    <script src="js/todo.js"></script>
+</body>
+
+</html>
